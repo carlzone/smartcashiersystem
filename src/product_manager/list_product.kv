@@ -1,0 +1,89 @@
+<ListProduct>:
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba: 0.8, 0.8, 0.8, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        orientation: 'vertical'
+        padding: 0, 10, 0, 0
+
+        BoxLayout:
+            size_hint_y: 0.1
+            height: 50
+            canvas.before:
+                Color:
+                    rgba: 0.5, 0.5, 0.5, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                text: 'PRODUCT MANAGEMENT'
+                bold: True
+                color: 1, 1, 1, 1
+            Button:
+                text: 'BACK'
+                size_hint_x: None
+                width: 100
+                on_press: root.on_back()
+
+        Label:
+            text: 'List Product'
+            bold: True
+            size_hint_y: 0.1
+            height: 50
+            color: 1, 1, 1, 1
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 0.1
+            height: 40
+            padding: [20, 10]
+            TextInput:
+                id: search_product
+                hint_text: 'SEARCH PRODUCT'
+                size_hint_x: 0.9
+                font_size: '20sp'
+            Button:
+                text: 'SEARCH'
+                size_hint_x: None
+                width: 80
+                on_press: root.on_search_product()
+
+        GridLayout:
+            cols: 4
+            size_hint_y: 0.1
+            height: 40
+            canvas.before:
+                Color:
+                    rgba: 0.5, 0.5, 0.5, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                text: '#'
+                bold: True
+                size_hint_x: 0.1
+            Label:
+                text: 'PROD'
+                bold: True
+                size_hint_x: 0.5
+            Label:
+                text: 'PRICE'
+                bold: True
+                size_hint_x: 0.2
+            Label:
+                text: 'QTY'
+                bold: True
+                size_hint_x: 0.2
+
+        ScrollView:            
+            size_hint_y: 0.6
+            CustomGridLayout:
+                id: product_list
+                cols: 4
+                size_hint_y: 1
+                height: self.minimum_height
+                row_default_height: 40
+                row_force_default: True

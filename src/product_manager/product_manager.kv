@@ -1,0 +1,57 @@
+<ProductManager>:
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba: 0.8, 0.8, 0.8, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        orientation: 'vertical'
+        padding: 0, 10, 0, 0
+        
+        BoxLayout:
+            size_hint_y: 0.1
+            height: 50
+            canvas.before:
+                Color:
+                    rgba: 0.5, 0.5, 0.5, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                text: 'PRODUCT MANAGEMENT'
+                bold: True
+                color: 1, 1, 1, 1
+                text_size: self.width - 15, None
+                halign: 'left'
+                valign: 'middle'
+
+            Button:
+                text: 'BACK'
+                size_hint_x: None
+                width: 100
+                on_press: root.on_back()
+                halign: 'center'
+                valign: 'middle'
+
+        GridLayout:
+            size_hint_y: 0.6
+            cols: 2
+            padding: 20
+            spacing: 20
+            Button:
+                text: 'Add Product'
+                on_press: root.on_add_product()
+            Button:
+                text: 'List Product'
+                on_press: root.on_list_product()
+            Button:
+                text: 'Update Product'
+                on_press: root.on_update_product()
+            Button:
+                text: 'Remove Product'
+                on_press: root.on_remove_product()
+
+        BoxLayout:
+            size_hint_y: 0.3
+            height: 50

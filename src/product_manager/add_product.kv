@@ -1,0 +1,87 @@
+<AddProduct>:
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba: 0.8, 0.8, 0.8, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        orientation: 'vertical'
+        padding: 0, 10, 0, 0
+
+        BoxLayout:
+            size_hint_y: 0.1
+            height: 50
+
+            canvas.before:
+                Color:
+                    rgba: 0.5, 0.5, 0.5, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            Label:
+                text: 'PRODUCT MANAGEMENT'
+                bold: True
+                color: 1, 1, 1, 1
+                text_size: self.width - 15, None
+                halign: 'left'
+                valign: 'middle'
+
+            Button:
+                text: 'BACK'
+                size_hint_x: None
+                width: 100
+                on_press: root.on_back()
+                halign: 'center'
+                valign: 'middle'
+
+        BoxLayout:
+            size_hint_y: 0.1
+            height: 40
+            
+            Label:
+                text: 'Add Product'
+                bold: True
+                size_hint_x: 0.1
+                color: 1, 1, 1, 1
+
+        BoxLayout:
+            size_hint_y: 0.6
+            orientation: 'vertical'
+            padding: 20
+            spacing: 20
+
+            TextInput:
+                id: product_name
+                hint_text: 'Product Name'
+                multiline: False
+
+            BoxLayout:
+                spacing: 10
+                TextInput:
+                    id: product_quantity
+                    hint_text: 'Product Quantity'
+                    multiline: False
+                Spinner:
+                    id: unit_spinner
+                    text: 'pcs'
+                    values: ['pcs', 'kg']
+                    size_hint_x: None
+                    width: 100
+
+            TextInput:
+                id: product_price
+                hint_text: 'Product Price'
+                multiline: False
+        
+        BoxLayout:
+            size_hint_y: 0.2
+            height: 50
+
+        BoxLayout:
+            size_hint_y: 0.1
+            Button:
+                text: 'STORE PRODUCT'
+                height: 50
+                on_press: root.on_store_product()

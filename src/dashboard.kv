@@ -1,0 +1,61 @@
+<Dashboard>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 0, 10, 0, 0
+        canvas.before:
+            Color:
+                rgba: 0.8, 0.8, 0.8, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        BoxLayout:
+            size_hint_y: 0.1
+            height: 50
+            canvas.before:
+                Color:
+                    rgba: 0.5, 0.5, 0.5, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                text: 'DASHBOARD'
+                bold: True
+                color: 1, 1, 1, 1
+                size_hint_x: 1
+                text_size: self.width - 15, None
+                halign: 'left'
+                valign: 'middle'
+
+        GridLayout:
+            size_hint_y: 0.6
+            cols: 2
+            padding: 20
+            spacing: 20
+            Button:
+                text: 'PRODUCTS'
+                on_press: root.on_products()
+            Button:
+                text: 'SALES'
+                on_press: root.on_sales()
+            Button:
+                text: 'REPORTS'
+                on_press: root.on_reports()
+            Button:
+                text: 'USERS'
+                on_press: root.on_users()
+
+        BoxLayout:
+            size_hint_y: 0.2
+            height: 50
+
+        BoxLayout:
+            size_hint_y: 0.1
+            height: 50
+            padding: [20, 10]
+            spacing: 20
+            Button:
+                text: 'REPORT BUG'
+                on_press: root.on_report_bug()
+            Button:
+                text: 'ABOUT US'
+                on_press: root.on_about_us()
